@@ -9,8 +9,8 @@ resource "null_resource" "app" {
   provisioner "remote-exec" {
   connection {
     type     = "ssh"
-    user     = jsondecode(data.aws_secretsmanager_secret_version.robot-secrets.secret_string)["SSH_USERNAME"]
-    password = jsondecode(data.aws_secretsmanager_secret_version.robot-secrets.secret_string)["SSH_PASSWORD"]
+    user     = "centos"
+    password = "DevOps321"
     host     = element(local.ALL_INSTANCE_IPS, count.index)
   }
     inline = [
